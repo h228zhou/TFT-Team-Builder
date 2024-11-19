@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendation Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/query">Champions</a>
+        <a href="/augments">Team Builder</a>
+        <a href="/recommendations">Recommendations</a>
+    </div>
+    <h1>Recommendation Results</h1>
+    {% if stage %}
+        <ul>
+            <li> <b>Current Stage:</b> {{ stage }}</li><br><br>
+            <li> <b>Highest Average Placement:</b> {{ highest_place.name }} ({{highest_place.place}})</li><br><br>
+            <li> <b>Highest Top 4 Rate:</b> {{ highest_top4.name }} ({{highest_top4.top4}}%)</li><br><br>
+            <li> <b>Highest Win Rate:</b> {{ highest_won.name }} ({{highest_won.won}}%)</li><br><br>
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    <table>
+        <thead>
+            <tr>
+                <th> </th>
+                <th>{{ data_first.name }}</th>
+                <th>{{ data_second.name }}</th>
+                <th>{{ data_third.name }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Average Placement</td>
+                <td>{{ data_first.place }}</td>
+                <td>{{ data_second.place }}</td>
+                <td>{{ data_third.place }}</td>
+            </tr>
+            <tr>
+                <td>Top 4 Rate</td>
+                <td>{{ data_first.top4 }}%</td>
+                <td>{{ data_second.top4 }}%</td>
+                <td>{{ data_third.top4 }}%</td>
+            </tr>
+            <tr>
+                <td>Win Rate</td>
+                <td>{{ data_first.won }}%</td>
+                <td>{{ data_second.won }}%</td>
+                <td>{{ data_third.won }}%</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <p>
+        <a href="/recommendations">Choose Some Other Augments</a>
+    </p>
+</body>
+</html>

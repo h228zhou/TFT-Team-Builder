@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query Champions</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/query">Champions</a>
+        <a href="/augments">Team Builder</a>
+        <a href="/recommendations">Recommendations</a>
+    </div>
+    <h1>Search for a Champion</h1>
+    <form action="/query" method="post">
+        <label for="championName">Champion Name:</label>
+        <input type="text" id="championName" name="championName" placeholder="Enter champion name"><br><br>
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>

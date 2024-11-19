@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Augments</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/query">Champions</a>
+        <a href="/augments">Team Builder</a>
+        <a href="/recommendations">Recommendations</a>
+    </div>
+    <h1>Let's Build Your Composition!</h1>
+    <h1>Choose a Champion</h1>
+    <form method="post">
+        <div class="dropdown-container">
+            <select name="selected_champion">
+                {% for champion in champions %}
+                    <option value="{{ champion.name }}">{{ champion.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Add Champion">
+    </form>
+
+    <h2>Your Champions:</h2>
+    <ul>
+        {% for champ in user_list %}
+            <li>
+                {{ champ }}
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('clear_list') }}" method="post">
+        <input type="submit" value="Clear List">
+    </form>
+
+    <p>
+        <a href="/recommendations">Get Recommendations</a>
+    </p>
+
+    
+</body>
+</html>

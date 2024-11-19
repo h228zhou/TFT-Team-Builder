@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/query">Champions</a>
+        <a href="/augments">Team Builder</a>
+        <a href="/recommendations">Recommendations</a>
+    </div>
+    <h1>Augment Recommendations</h1>
+    <p>
+        All data on thie website is scraped from <a href="https://tactics.tools" target="_blank">Tactics.Tools</a>.
+    </p><br><br>
+    <h2>Select the Current Stage</h2>
+
+    <div class="search-container">
+        <div class="search-box">
+            <form action="/recommendations" method="post">
+                <div class="dropdown-container">
+                    <select name="current_stage">
+                        <option value="2-1">2-1</option>
+                        <option value="3-2">3-2</option>
+                        <option value="4-2">4-2</option>
+                    </select>
+                </div>
+                <label for="firstChoice">First Augment Choice:</label>
+                <input type="text" id="firstChoice" name="firstChoice" placeholder="Enter Augment Name">
+
+                <label for="secondChoice">Second Augment Choice:</label>
+                <input type="text" id="secondChoice" name="secondChoice" placeholder="Enter Augment Name">
+
+                <label for="thirdChoice">Third Augment Choice:</label>
+                <input type="text" id="thirdChoice" name="thirdChoice" placeholder="Enter Augment Name"><br><br>
+
+                <input type="submit" value="Get Recommendations">
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>
